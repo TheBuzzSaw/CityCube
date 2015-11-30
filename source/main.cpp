@@ -63,26 +63,6 @@ int main(int argc, char** argv)
 
         TestModule module;
         window.Run(module);
-
-        for (int i = 0; i < SDL_NumJoysticks(); ++i)
-        {
-            if (SDL_IsGameController(i))
-            {
-                SDL_GameController *controller = SDL_GameControllerOpen(i);
-                if (controller)
-                {
-                    SDL_GameControllerClose(controller);
-                }
-                else
-                {
-                    fprintf(
-                        stderr,
-                        "Could not open gamecontroller %i: %s\n",
-                        i,
-                        SDL_GetError());
-                }
-            }
-        }
     }
 
     IMG_Quit();

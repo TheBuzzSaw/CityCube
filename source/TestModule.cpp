@@ -107,7 +107,9 @@ void TestModule::OnPulse()
         .LoadIdentity();
 
     _viewMatrix
-        .LoadIdentity();
+        .LoadIdentity()
+        .Translate(0.0f, 0.0f, -4.0f)
+        .RotateX(SDL2TK::RotationF::FromDegrees(-45.0f));
 }
 
 void TestModule::OnSecond(int framesPerSecond)
@@ -134,17 +136,14 @@ void TestModule::OnKeyUp(const SDL_Keysym& keysym)
 
 void TestModule::OnControllerAxis(const SDL_ControllerAxisEvent& event)
 {
-
 }
 
 void TestModule::OnControllerButtonDown(const SDL_ControllerButtonEvent& event)
 {
-    SafeCall(_onControllerButtonDown[event.button]);
 }
 
-void TestModule::OnControllerButtonUp (const SDL_ControllerButtonEvent& event)
+void TestModule::OnControllerButtonUp(const SDL_ControllerButtonEvent& event)
 {
-    SafeCall(_onControllerButtonUp[event.button]);
 }
 
 void TestModule::OnResize(int width, int height)
@@ -153,7 +152,12 @@ void TestModule::OnResize(int width, int height)
     glMatrixMode(GL_PROJECTION);
 
     SDL2TK::Matrix4x4F matrix;
-    matrix.Orthographic(1.0f, float(width) / float(height));
+    matrix.Perspective(
+        SDL2TK::RotationF::FromDegrees(30.0f),
+        float(width) / float(height),
+        1.0f,
+        512.0f);
+    //matrix.Orthographic(1.0f, float(width) / float(height));
 
     glLoadMatrixf(matrix);
     glMatrixMode(GL_MODELVIEW);

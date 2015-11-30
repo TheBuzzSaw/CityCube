@@ -40,10 +40,6 @@ class TestModule : public SDL2TK::Module
         std::unordered_map<SDL_Keycode, Action<TestModule>> _onKeyDown;
         std::unordered_map<SDL_Keycode, Action<TestModule>> _onKeyUp;
 
-        std::unordered_map<Uint8, Action<TestModule>> _onControllerButtonUp;
-        std::unordered_map<Uint8, Action<TestModule>> _onControllerButtonDown;
-
-
         SDL2TK::ShaderProgram _simpleProgram;
         GLint _simplePositionAttribute;
         GLint _textureCoordinatesAttribute;
