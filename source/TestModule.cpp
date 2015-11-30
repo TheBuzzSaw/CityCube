@@ -15,8 +15,8 @@ TestModule::TestModule()
 
     const GLenum params[] = {
 
-        GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE,
-        GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE,
+        GL_TEXTURE_WRAP_S, GL_REPEAT,
+        GL_TEXTURE_WRAP_T, GL_REPEAT,
         GL_TEXTURE_MAG_FILTER, GL_LINEAR,
         GL_TEXTURE_MIN_FILTER, GL_LINEAR,
         0 };
@@ -61,11 +61,13 @@ void TestModule::OnLoop()
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+    constexpr float N = 1.0f;
+
     const float PlayerData[] = {
-        -0.5f, -0.5f, 0.0f, 0.0f, 1.0f,
-        -0.5f, 0.5f, 0.0f, 0.0f, 0.0f,
-        0.5f, 0.5f, 0.0f, 1.0f, 0.0f,
-        0.5f, -0.5f, 0.0f, 1.0f, 1.0f
+        -N, -N, 0.0f, 0.0f, 2.0f,
+        -N, N, 0.0f, 0.0f, 0.0f,
+        N, N, 0.0f, 2.0f, 0.0f,
+        N, -N, 0.0f, 2.0f, 2.0f
         };
 
     _simpleProgram.Use();
@@ -151,7 +153,7 @@ void TestModule::OnResize(int width, int height)
     glMatrixMode(GL_PROJECTION);
 
     SDL2TK::Matrix4x4F matrix;
-    matrix.Orthographic(3.0f, float(width) / float(height));
+    matrix.Orthographic(1.0f, float(width) / float(height));
 
     glLoadMatrixf(matrix);
     glMatrixMode(GL_MODELVIEW);

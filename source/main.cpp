@@ -28,7 +28,8 @@ void MyCallback(
     const GLchar *msg,
     const void *data)
 {
-    cerr << "debug call: " << msg << endl;
+    if (id != 131218) // http://stackoverflow.com/a/13201020
+        cerr << "OpenGL debug -- " << id << " -- " << msg << endl;
 }
 
 int main(int argc, char** argv)
@@ -65,7 +66,7 @@ int main(int argc, char** argv)
         }
 
         SDL2TK::WindowSettings settings;
-        settings.Title("Wombat Cheerios");
+        settings.Title("CityCube");
         settings.Width(1024);
         settings.Height(768);
 
