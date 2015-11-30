@@ -1,23 +1,9 @@
 #include "SDL2TK/Window.hpp"
-#include "SDL2TK/Network/Port.hpp"
-#include "SDL2TK/Network/Address128.hpp"
 #include "TestModule.hpp"
 #include "Rectangle.hpp"
 #include <SDL_image.h>
 #include <vector>
 using namespace std;
-
-void TestNetwork()
-{
-    auto port = SDL2TK::Port::FromHostValue(12621);
-
-    cout << "port: " << port << endl;
-    cout << "port network value: " << port.networkValue << endl;
-
-    SDL2TK::Address128 address = {};
-
-    cout << "address 128: " << address << endl;
-}
 
 void MyCallback(
     GLenum source,
@@ -34,11 +20,6 @@ void MyCallback(
 
 int main(int argc, char** argv)
 {
-    //TestNetwork();
-    TestRationals();
-    TestLines();
-    //return 0;
-
     SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER | SDL_INIT_GAMECONTROLLER);
     IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG | IMG_INIT_TIF);
 

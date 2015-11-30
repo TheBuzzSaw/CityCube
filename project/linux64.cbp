@@ -55,9 +55,6 @@
 		<Unit filename="../source/SDL2TK/Matrix4x4.hpp" />
 		<Unit filename="../source/SDL2TK/Module.cpp" />
 		<Unit filename="../source/SDL2TK/Module.hpp" />
-		<Unit filename="../source/SDL2TK/Network/Address128.cpp" />
-		<Unit filename="../source/SDL2TK/Network/Address32.cpp" />
-		<Unit filename="../source/SDL2TK/Network/Port.cpp" />
 		<Unit filename="../source/SDL2TK/OpenAL/AudioBuffer.cpp" />
 		<Unit filename="../source/SDL2TK/OpenAL/AudioBuffer.hpp" />
 		<Unit filename="../source/SDL2TK/OpenAL/AudioContext.cpp" />
